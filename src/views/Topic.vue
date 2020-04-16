@@ -15,23 +15,21 @@
 </template>
 
 <script>
+import {mapState,mapActions} from 'vuex'
 export default {
   name:"Topic",
-  data(){
-    return{
-      topics:Object
-    }
+  computed:{
+    ...mapState(['topics'])
   },
   methods:{
-    getDetail(url){
-      this.$getTopic.getTopicDetail(url).then(response =>{
-        this.topics = response.data
-      })
+    ...mapActions(['getDetailById']),
+    getDetail(id){
+     this.getDetailById(id)
     }
   },
   mounted(){
-    let url = this.$route.params.id
-    this.getDetail(url)
+    let id = this.$route.params.id
+    this.getDetail(id)
   }
 }
 </script>

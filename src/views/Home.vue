@@ -16,7 +16,7 @@ import Content from "@/components/Content";
 import Test1 from "@/components/Test1"
 import Test2 from "@/components/Test2"
 import Test3 from "@/components/Test3"
-
+import {mapState,mapActions} from 'vuex'
 
 export default {
   name: "Home",
@@ -25,27 +25,26 @@ export default {
       page: 1,
       activeName: "Content",
       limit: 15,
-      list: [],
       tab: "all",
       loading: true
     };
   },
+  computed:{
+      ...mapState(['list'])
+  },
   methods: {
-    getTopics() {
+    ...mapActions(['getTopics']),
+    getTopic() {
       let params = {
         page: this.page,
         tab: this.tab,
         limit: this.limit
       };
-      this.$getTopic.getTopicList(params).then(Response => {
-        this.list = Response.data;
-        this.limit += 10;
-        this.loading = false;
-      });
+      this.getTopics(params).then(() =>this.loading = false)
     }
   },
-  created() {
-    this.getTopics();
+  mounted() {
+    this.getTopic()
   },
   components: {
     Content,
