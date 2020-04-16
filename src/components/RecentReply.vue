@@ -1,9 +1,11 @@
 <template>
-    <div>RecentReply</div>
+  <div>
+    <header></header>
+  </div>
 </template>
 
 <script>
 export default {
-    name:"RecentReply"
-}
+  name: "RecentReply"
+};
 </script>
