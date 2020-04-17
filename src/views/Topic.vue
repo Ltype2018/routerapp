@@ -3,11 +3,10 @@
     <div>{{topics.title}}</div>
     <el-row>
       <el-col :span="24">
-        <router-link :to="{path:'/user/' + topics.author.loginname }">
+        <router-link :to="{path:`/user/${topics.author.loginname}`}">
           <span>{{topics.author.loginname}}</span>
-
         </router-link>
-                  <span>{{topics.visit_count}}次浏览</span>
+        <span>{{topics.visit_count}}次浏览</span>
       </el-col>
     </el-row>
     <div class="content" v-html="topics.content"></div>
@@ -15,21 +14,21 @@
 </template>
 
 <script>
-import {mapState,mapActions} from 'vuex'
+import { mapState, mapActions } from "vuex";
 export default {
-  name:"Topic",
-  computed:{
-    ...mapState(['topics'])
+  name: "Topic",
+  computed: {
+    ...mapState(["topics"])
   },
-  methods:{
-    ...mapActions(['getDetailById']),
-    getDetail(id){
-     this.getDetailById(id)
+  methods: {
+    ...mapActions(["getDetailById"]),
+    getDetail(id) {
+      this.getDetailById(id);
     }
   },
-  mounted(){
-    let id = this.$route.params.id
-    this.getDetail(id)
+  created() {
+    let id = this.$route.params.id;
+    this.getDetail(id);
   }
-}
+};
 </script>

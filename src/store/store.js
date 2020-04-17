@@ -20,9 +20,9 @@ export default new Vuex.Store({
         }
     },
     actions:{
-        //加return为组件中添加后续then处理回调函数
+        //添加return then接loading回调函数
         getTopics({commit},params){
-         return article.getTopics(params).then(
+           return  article.getTopics(params).then(
              (response)=>{
                  commit('addTopics',response.data.data)}
          )

@@ -40,11 +40,11 @@ export default {
         tab: this.tab,
         limit: this.limit
       };
-      this.getTopics(params).then(() =>this.loading = false)
+     return this.getTopics(params)
     }
   },
   mounted() {
-    this.getTopic()
+    this.getTopic().then(() => this.loading = false)
   },
   components: {
     Content,

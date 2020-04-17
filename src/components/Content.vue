@@ -12,15 +12,14 @@
                   {{item.title}}
                 </router-link>
             </el-col>
-        </el-row>
+        </el-row> 
     </div>
 </template>
-
 <script>
 
 export default {
     name:"Topics",
-    props:["list",'loading']
+    props:['loading','list']
 }
 </script>
 

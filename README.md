@@ -1,29 +1,5 @@
-# routerapp
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+routerapp
+###router 的写法
+`router.push({name:'user'}, params:{id:userId})`
+`router.push({path:\`/user/\`${userId}})`
+path和params不能同时存在
